@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <a href="index.php" class="navbar-brand text-white">Mangola</a>
+        <a href="index.php" class="navbar-brand text-white">CarSale</a>
     </div>
     
     <div id="navbar" class="collapse navbar-collapse">

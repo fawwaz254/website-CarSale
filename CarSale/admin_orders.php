@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 	<?php
-		if(($_SESSION['email']=="admin@mangola.com"))
+		if(($_SESSION['email']=="admin@carsale.com"))
         {
           include "includes/header_admin.php";
         }

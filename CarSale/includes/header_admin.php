@@ -7,18 +7,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            <a href="products.php" class="navbar-brand text-white">Mangola</a>
+            <a href="products.php" class="navbar-brand text-white">CarSale</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav pull-right">
             <li><a class="text-white" href="admin.php"> <?php echo $_SESSION['name'];?> </a></li>
-            <li><a class="text-white" href="products.php">Home</a></li>
-            <li><a class="text-white" href="show_cart_items.php">Cart</a></li>
-            <li><a class="text-white" href="show_wishlist_items.php">Wishlist</a></li>
-            <li><a class="text-white" href="show_order_items.php">Orders</a></li>
+            <li><a class="text-white" href="products.php">Produk</a></li>
             <li><a class="text-white" href="logout.php">Logout</a></li>
           </ul>
-          
+
                   </div><!--/.nav-collapse -->
       </div>
     </nav>

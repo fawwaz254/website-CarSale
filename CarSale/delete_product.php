@@ -7,7 +7,7 @@
 	include "includes/dbconnect.php";
 	$product_id=$_POST['product_id'];
 
-	$query="DELETE FROM `mangola`.`products` WHERE `product_id` LIKE '$product_id'";
+	$query="DELETE FROM `carsale`.`products` WHERE `product_id` LIKE '$product_id'";
 	if (mysqli_query($connection,$query))
 	{
 		header('Location: admin.php?msg=11');

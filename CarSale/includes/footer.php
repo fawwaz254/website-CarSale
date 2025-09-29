@@ -6,7 +6,7 @@
           <b><a href="#">Terms & Conditions</a></b><br>
           <a href="#"> Privacy Policy </a><br>
           <a href="#">Legal</a><br> 
-          <a href="#"> Sell on Mangola</a><br>
+          <a href="#"> Jual di CarSale</a><br>
           <a href="#"> FAQ</a><br>
           <a href="#"> Careers</a><br>
           <a href="#">Press</a><br>
@@ -18,19 +18,21 @@
       <div class="footer">
         <p class="justify">
         <h4 class="text-center text-red"> Contact us </h4> <br>
-        Address: Infinity Benchmark, Salt Lake Sector-V, <br>Kolkata-700084, <br>West Bengal<br>
-        Phone: +91-7890998781<br>
-        Email: support@mangola.com<br>
+        Address: Jl. Raya Singosari, Malang, <br>Jawa Timur 65153<br>
+        Phone: +62-81234567890<br>
+        Email: support@carsale.com<br>
         </p>
       </div>
     </div>
 
     <div class="col-md-4">       
       <div class="footer">
-        <h4 class="text-center"><b> Follow Mangola on:</b> </h4>
-        <a href="https://www.facebook.com/anirbandey303"> <img src="images/fb.jpg" class="thumbnail"> </a>
-        <a href="https://www.instagram.com/_anirbandey_"> <img src="images/insta.jpg" class="thumbnail"> </a>
-        <a href="https://www.twitter.com/_anirbandey_"> <img src="images/twitter.jpg" class="thumbnail"> </a>
+        <h4 class="text-center"><b> Ikuti CarSale di:</b> </h4>
+        <div class="text-center">
+          <a href="https://www.facebook.com/anirbandey303" class="social-icon"><i class="fab fa-facebook fa-2x"></i></a>
+          <a href="https://www.instagram.com/_anirbandey_/" class="social-icon"><i class="fab fa-instagram fa-2x"></i></a>
+          <a href="https://www.twitter.com/_anirbandey_/" class="social-icon"><i class="fab fa-twitter fa-2x"></i></a>
+        </div>
       </div>      
     </div>
   </div>

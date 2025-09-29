@@ -10,12 +10,13 @@
 	$product_name=$_POST['product_name'];
 	$product_price=$_POST['product_price'];
 	$product_description=$_POST['product_description'];
+	$product_category=$_POST['product_category'];
 
 	$filename=$_FILES['image']['name'];
 	$temp_name=$_FILES['image']['tmp_name'];
 	if(move_uploaded_file($temp_name, "images/".$filename))
 	{
-		$query="INSERT INTO `products` (`product_id`, `product_name`, `product_price`, `product_description`, `product_image`) VALUES (NULL, '$product_name', '$product_price', '$product_description', '$filename')";
+		$query="INSERT INTO `products` (`product_id`, `product_name`, `product_price`, `product_description`, `product_image`, `product_category`) VALUES (NULL, '$product_name', '$product_price', '$product_description', '$filename', '$product_category')";
 		if(mysqli_query($connection,$query))
 		{
 			header('Location: admin.php?msg=1');

@@ -1,0 +1,250 @@
+body{
+	padding-top: 100px;
+	font-family: 'Roboto', sans-serif;
+	background-color: #f8f9fa;
+	color: #333;
+}
+
+h1{
+	font-family: 'Montserrat', sans-serif !important;
+	font-weight: 700;
+}
+
+.bio-tab{
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: white;
+	padding: 20px;
+	border-radius: 15px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+	margin-bottom: 50px;
+}
+
+.curve-edge{
+	border-radius: 15px;
+	transition: transform 0.3s ease;
+}
+
+.curve-edge:hover{
+	transform: scale(1.05);
+}
+
+.font-80px{
+	font-size: 80px;
+	text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.font-12px{
+	font-size: 12px;
+}
+
+.footer{
+	background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+	color: white;
+	padding: 20px;
+	margin-top: 50px;
+	margin-bottom: 25px;
+	border-radius: 10px;
+}
+
+.font-comic{
+	font-family: 'Roboto', sans-serif;
+}
+
+.font-impact{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 30px;
+	font-weight: 700;
+}
+
+.hover-pink{}
+.hover-pink:hover{
+	background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+	cursor: pointer;
+	transform: translateY(-5px);
+	transition: all 0.3s ease;
+}
+
+.img-size{
+	width: 100%;
+	height: 300px;
+	border-radius: 15px;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.img-size-lg{
+	width: 100%;
+	height: 550px;
+	border-radius: 15px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.img-size-xs{
+	width: 100%;
+	height: 90px;
+	border-radius: 10px;
+}
+
+.img-size-sm{
+	width: 100%;
+	height: 120px;
+	border-radius: 10px;
+}
+
+.img-circle{
+	border-radius:50%;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.list{
+	background: #ffffff;
+	color: #333;
+	margin-bottom: 20px;
+	border-radius: 15px;
+	padding: 20px;
+	border: 1px solid #e9ecef;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+	transition: all 0.3s ease;
+}
+
+.list:hover{
+	transform: translateY(-5px);
+	box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.form-card{
+	background: #ffffff;
+	padding: 30px;
+	border-radius: 15px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+	margin-bottom: 50px;
+}
+
+.margin-top50{
+	margin-top: 50px;
+}
+
+.margin-right20{
+	margin-right: 20px;
+}
+
+.margin-bottom50{
+	margin-bottom: 50px;
+}
+.margin-left20
+{
+	margin-left:20px;
+}
+.navbar{
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	border-color: #667eea;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+	transition: all 0.3s ease;
+}
+
+.navbar-brand:hover{
+	text-decoration: none;
+	opacity: 0.8;
+	transform: scale(1.05);
+	transition: all 0.3s ease;
+}
+
+.navbar-nav li a:hover{
+	background-color: rgba(255,255,255,0.1);
+	border-radius: 5px;
+	transform: translateY(-2px);
+	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+	transition: all 0.3s ease;
+}
+
+.product-tab{
+	background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+	width: 100%;
+	padding: 20px;
+	margin-bottom: 25px;
+	border-radius: 15px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-tab:hover{
+	transform: translateY(-10px);
+	box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.text-white{
+	color: white !important;
+}
+.text-red{
+	color: #e74c3c !important;
+}
+.text-center{
+	text-align: center;
+}
+
+.text-justify{
+	text-align: justify;
+}
+.thumbnail{
+	width:50px;
+	height: 50px;
+	border-radius: 10px;
+}
+
+.btn{
+	border-radius: 25px;
+	font-weight: 600;
+	transition: all 0.3s ease;
+}
+
+.btn:hover{
+	transform: translateY(-2px);
+	box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.container{
+	max-width: 1200px;
+}
+
+.alert{
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+
+.form-group{
+	margin-bottom: 20px;
+}
+
+/* Rating Stars */
+.rating {
+  display: inline-block;
+  font-size: 24px;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.rating input:checked ~ label {
+  color: #ffca08;
+}
+
+.rating label:hover,
+.rating label:hover ~ label {
+  color: #ffca08;
+}
+
+.social-icon {
+  color: white;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+.social-icon:hover {
+  color: #ddd;
+}

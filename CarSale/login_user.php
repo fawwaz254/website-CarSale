@@ -32,7 +32,7 @@
 		$_SESSION['user_id']=$row['user_id'];
 
 		
-		if(($_SESSION['email']=="admin@mangola.com")&&($row['password']=="1234"))
+		if(($_SESSION['email']=="admin@carsale.com")&&($row['password']=="1234"))
 		{
 			header('Location: admin.php');
 		}
