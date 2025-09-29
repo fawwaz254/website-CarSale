@@ -20,7 +20,7 @@
         include "includes/header_postlogin.php";
         }
    ?>
-<body style="background-color: #f8f9fa; !important">
+<body style="background-color: #f8f9fa !important;">
 
 
   <div class="container ">
@@ -74,6 +74,7 @@
                     <img src="images/'.$row['product_image'].'" class="img-size curve-edge">
                     <h3 class="text-center"><b>'.$row['product_name'].'</b></h3>
                     <p class="justify"><b><i> &nbsp&nbsp&nbsp&nbsp '.$row['product_description'].'</i></b></p>
+                    <p><b>Kategori: </b>'.$row['product_category'].'<br><b>Bahan Bakar: </b>'.$row['fuel_type'].'</p>
                     <a href="product_description.php?product_id='.$row['product_id'].'" class="btn btn-block btn-success"> <i class="fas fa-eye"></i> Lihat Detail </a>
                   </div>
                 </div>';

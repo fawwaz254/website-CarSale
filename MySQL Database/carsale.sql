@@ -83,15 +83,16 @@ CREATE TABLE `products` (
   `product_price` int NOT NULL,
   `product_description` text NOT NULL,
   `product_image` varchar(255) NOT NULL,
-  `product_category` varchar(255) NOT NULL
+  `product_category` varchar(255) NOT NULL,
+  `fuel_type` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `product_name`, `product_price`, `product_description`, `product_image`, `product_category`) VALUES
-(15, 'Toyota 86', 100000000, 'baik', '86 new.webp', 'Sedan');
+INSERT INTO `products` (`product_id`, `product_name`, `product_price`, `product_description`, `product_image`, `product_category`, `fuel_type`) VALUES
+(15, 'Toyota 86', 100000000, 'baik', '86 new.webp', 'Sedan', 'Petrol');
 
 -- --------------------------------------------------------
 

@@ -63,19 +63,22 @@
 							<textarea name="product_description" class="form-control" rows="3" required></textarea>
 						</div>
 						<div class="form-group">
-							<label><i class="fas fa-list"></i> Kategori Produk</label><br>
-							<div class="row">
-								<div class="col-md-6">
-									<input type="radio" name="product_category" value="SUV" required> <i class="fas fa-car"></i> SUV<br>
-									<input type="radio" name="product_category" value="Sedan" required> <i class="fas fa-car"></i> Sedan<br>
-									<input type="radio" name="product_category" value="Hatchback" required> <i class="fas fa-car"></i> Hatchback<br>
-								</div>
-								<div class="col-md-6">
-									<input type="radio" name="product_category" value="MPV" required> <i class="fas fa-car"></i> MPV<br>
-									<input type="radio" name="product_category" value="Coupe" required> <i class="fas fa-car"></i> Coupe<br>
-									<input type="radio" name="product_category" value="Truck" required> <i class="fas fa-truck"></i> Truck<br>
-								</div>
-							</div>
+							<label><i class="fas fa-list"></i> Kategori Produk</label>
+							<select name="product_category" class="form-control" required>
+								<option value="">Pilih Kategori</option>
+								<option value="SUV"><i class="fas fa-car"></i> SUV</option>
+								<option value="Sedan"><i class="fas fa-car"></i> Sedan</option>
+								<option value="Hatchback"><i class="fas fa-car"></i> Hatchback</option>
+								<option value="MPV"><i class="fas fa-car"></i> MPV</option>
+								<option value="Coupe"><i class="fas fa-car"></i> Coupe</option>
+								<option value="Truck"><i class="fas fa-truck"></i> Truck</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label><i class="fas fa-gas-pump"></i> Tipe Bahan Bakar</label><br>
+							<input type="radio" name="fuel_type" value="Petrol" required> <i class="fas fa-gas-pump"></i> Bensin<br>
+							<input type="radio" name="fuel_type" value="Diesel" required> <i class="fas fa-oil-can"></i> Solar<br>
+							<input type="radio" name="fuel_type" value="Electric" required> <i class="fas fa-bolt"></i> Listrik<br>
 						</div>
 						<div class="form-group">
 							<label><i class="fas fa-image"></i> Unggah Gambar</label>

@@ -64,6 +64,7 @@
 					                <h1 class="text-center"> '.$row['product_name'].'</h1>
 					                <p> &nbsp&nbsp&nbsp&nbsp '.$row['product_description'].'<br>
 					                <br> <b>Kategori: </b>'.$row['product_category'].'<br>
+					                <br> <b>Tipe Bahan Bakar: </b>'.$row['fuel_type'].'<br>
 					                <br> <b>Harga: Rp '.$row['product_price'].'/Unit</b><br>
 					                <br> <b>Rating Rata-rata: </b>';
 					                if($review_count > 0){
