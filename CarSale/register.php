@@ -1,49 +1,42 @@
 <!DOCTYPE html>
-<html>
-
-	<?php include "includes/css_header.php" ?>
-	
-	<body style="background-color:#2F3235 !important">
-
-    <?php include "includes/header_prelogin.php" ?>
-
-    	<div id="main_body" class="container">
-            <?php
-                if(isset($_GET['msg']))
-                {
-                    if($_GET['msg']=='2')
-                    {
-                        echo "<div class='alert alert-danger text-center margin-top50'><i>Email Pengguna Sudah Digunakan!</i></div>";
-                    }
-                }
-             ?>
-    		<div class="row">
-    			<div class="col-md-8 margin-top50">
-    				<h1 class="text-white font-80px text-center"><b>Dapatkan Mobil Terbaik dengan Harga Termurah dari CarSale</b></h1>
-    			</div>
-
-    			<div class="col-md-4 margin-top50">
-    				<div class="form-card">
-    					<h2 class="text-center"> <b>Buat Akun di Sini</b> </h2>
-    					<form class="form" action="register_user.php" method="POST">
-                            <div class="form-group">
-                                <label>Nama Depan:</label>
-                                <input type="text" class="form-control" placeholder="Masukkan Nama Anda" name="user_name" required>
-                            </div>
-                            <div class="form-group">
-        						<label>Email:</label>
-        						<input type="email" class="form-control" placeholder="Masukkan Email Anda" name="user_email" required>
-                            </div>
-                            <div class="form-group">
-        						<label>Kata Sandi:</label>
-        						<input type="password" class="form-control" placeholder="Kata Sandi" name="user_password" required>
-                            </div>
-        					<input type="submit" class="btn btn-primary btn-lg btn-block" value="Daftar" name="">
-    					</form>
-    					<p class="text-center"><i>Sudah menjadi anggota? <a href="index.php">Masuk di Sini</a></i></p>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
+<html lang="id">
+	<head>
+		<?php include "includes/css_header.php"; ?>
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<script src="js/error_manager.js"></script>
+	</head>
+	<body style="background-color:#2F3235 !important;">
+		<div id="main_body" class="container">
+			<div class="row">
+				<div class="col-md-12 margin-top50">
+					<div class="modern-form-card">
+						<h2 class="text-center modern-form-title"> <b>Buat Akun di Sini</b> </h2>
+						<form class="form" action="register_user.php" method="POST" onsubmit="return validateRegisterForm()">
+							<div class="custom-form-group">
+								<label class="modern-label">Nama Depan:</label>
+								<input type="text" class="custom-form-control modern-input" placeholder="Masukkan Nama Anda" name="user_name" id="user_name">
+							</div>
+							<div class="custom-form-group">
+								<label class="modern-label">Email:</label>
+								<input type="text" class="custom-form-control modern-input" placeholder="Masukkan Email Anda" name="user_email" id="user_email">
+							</div>
+							<div class="custom-form-group">
+								<label class="modern-label">Kata Sandi:</label>
+								<input type="password" class="custom-form-control modern-input" placeholder="Kata Sandi" name="user_password" id="user_password">
+							</div>
+							<div class="custom-form-group">
+								<label class="modern-label">Konfirmasi Kata Sandi:</label>
+								<input type="password" class="custom-form-control modern-input" placeholder="Konfirmasi Kata Sandi" name="user_confirm_password" id="user_confirm_password">
+							</div>
+							<input type="submit" class="custom-btn custom-btn-primary custom-btn-lg custom-btn-block modern-btn" value="Daftar">
+						</form>
+						<p class="text-center modern-link"><i>Sudah menjadi anggota? <a href="index.php" class="modern-link-a">Masuk di Sini</a></i></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			// Error messages will be handled automatically by error_manager.js
+		</script>
 	</body>
 </html>

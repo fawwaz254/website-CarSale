@@ -1,48 +1,66 @@
 <?php
+session_start();
+if (isset($_SESSION['name']) && isset($_SESSION['email'])) {
+    header('Location: products.php');
+    exit();
+}
 
-	session_start();
-	if(!(isset($_SESSION['name'])&&isset($_SESSION['email'])))
-	{
-		header('Location: register.php');
-	}
-	include "includes/dbconnect.php";
-	
+if (!(isset($_POST['user_email']) && isset($_POST['user_password']))) {
+    header('Location: index.php');
+    exit();
+}
 
-	$email=$_POST['user_email'];
-	$password=$_POST['user_password'];
+include "includes/dbconnect.php";
 
-	$query="SELECT * FROM `users` WHERE `email` LIKE '$email' AND `password` LIKE '$password'";
+$email = trim($_POST['user_email']);
+$password = $_POST['user_password'];
 
-	//running the serch in DB and storing in $result
-	$result=mysqli_query($connection,$query);
+// Validasi sisi server
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    header('Location: index.php?msg=Format email tidak valid');
+    exit();
+}
 
-	//function to return the number of rows in $result
+if (empty($password)) {
+    header('Location: index.php?msg=Kata sandi tidak boleh kosong');
+    exit();
+}
 
-	$num_rows=mysqli_num_rows($result);
+// Gunakan prepared statement untuk query
+$stmt = $connection->prepare("SELECT * FROM `users` WHERE `email` = ?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
 
-	if($num_rows==1)
-	{
-		//correct login
+if ($result->num_rows == 1) {
+    $row = $result->fetch_assoc();
 
-		//retriving session name
+    // Verifikasi password yang di-hash atau plain untuk admin
+    $password_valid = false;
+    if ($row['email'] == "admin@carsale.com" && $password == "1234") {
+        $password_valid = true;
+    } elseif (password_verify($password, $row['password'])) {
+        $password_valid = true;
+    }
 
-		$row=mysqli_fetch_assoc($result);
-		$_SESSION['name']=$row['name'];
-		$_SESSION['email']=$row['email'];
-		$_SESSION['user_id']=$row['user_id'];
+    if ($password_valid) {
+        $_SESSION['name'] = $row['name'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['user_id'] = $row['user_id'];
 
-		
-		if(($_SESSION['email']=="admin@carsale.com")&&($row['password']=="1234"))
-		{
-			header('Location: admin.php');
-		}
-		else
-			header('Location: products.php');
-	}
-	else
-	{	//incorrect login
-		//redirect
-		header('Location: index.php');
-	}
-
+        // Cek admin
+        if ($row['email'] == "admin@carsale.com") {
+            header('Location: admin.php');
+        } else {
+            header('Location: products.php');
+        }
+        exit();
+    } else {
+        header('Location: index.php?msg=Kata sandi salah');
+        exit();
+    }
+} else {
+    header('Location: index.php?msg=Email tidak ditemukan');
+    exit();
+}
 ?>

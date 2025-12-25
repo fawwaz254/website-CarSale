@@ -1,19 +1,15 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="custom-navbar fixed-top bg-dark">
   <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-        <a href="index.php" class="navbar-brand text-white">CarSale</a>
+    <a class="navbar-brand" href="index.php">CarSale</a>
+    <button class="navbar-toggler" type="button" onclick="toggleNavbar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.php">Home</a>
+        </li>
+      </ul>
     </div>
-    
-    <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav pull-right">
-        <li><a class="text-white" href="index.php">Home</a></li>
-      </ul>     
-    </div><!--/.nav-collapse -->
   </div>
 </nav>

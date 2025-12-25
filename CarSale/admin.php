@@ -1,114 +1,128 @@
+<?php
+session_start();
+if (!(isset($_SESSION['name']) && isset($_SESSION['email']))) {
+    header('Location: register.php');
+    exit;
+}
+include "includes/dbconnect.php";
+?>
 <!DOCTYPE html>
-<html>
-	<?php
-	session_start();
-	if(!(isset($_SESSION['name'])&&isset($_SESSION['email'])))
-  	{
-    	header('Location: register.php');
-  	}
-	include "includes/css_header.php"; ?>
-<body style="background-color: #f8f9fa;">
-	<?php include "includes/header_admin.php"; ?>
-	<div class="container">
+<html lang="id">
+<head>
+    <!-- Basic Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<div class="row">
-			<div class="col-md-12 text-center margin-bottom50">
-				<h1 class="font-80px">Admin Panel</h1>
-			</div>
-		</div>
+    <!-- Title -->
+    <title>Dashboard Admin CarSale | Sistem Manajemen Penjualan Mobil</title>
 
-		<div class="row margin-bottom50">
-			<div class="col-md-12">
-				<a href="admin_orders.php" class="btn btn-lg btn-success"> <i class="fas fa-list"></i> Lihat Semua Pesanan</a>
-			</div>
-		</div>
+    <!-- SEO Meta -->
+    <meta name="description" content="Dashboard admin CarSale digunakan untuk mengelola produk mobil, permintaan pelanggan, serta data transaksi secara terpusat dan efisien.">
 
-		<?php
-		if(isset($_GET['msg']))
-        {
-          if ($_GET['msg']==1)
-          {
-            echo "<div class='alert alert-success text-center'><i class='fas fa-check-circle'></i> Produk telah ditambahkan</div>";
-          }
-          elseif ($_GET['msg']==2)
-          {
-            echo "<div class='alert alert-danger text-center'><i class='fas fa-times-circle'></i> Produk tidak dapat ditambahkan</div>";
-          }
-          elseif ($_GET['msg']==11)
-          {
-            echo "<div class='alert alert-success text-center'><i class='fas fa-check-circle'></i> Produk telah dihapus</div>";
-          }
-          elseif ($_GET['msg']==22)
-          {
-            echo "<div class='alert alert-danger text-center'><i class='fas fa-times-circle'></i> Produk tidak dapat dihapus</div>";
-          }
-        }
-        ?>
+    <!-- Canonical (aman walau localhost) -->
+    <link rel="canonical" href="http://localhost/carsale/admin.php">
 
-		<div class="row">
-			<div class="col-md-12">
-				<div class="form-card">
-					<h3 class="text-center margin-bottom50"> <i class="fas fa-plus-circle"></i> Tambahkan Produk ke Database</h3>
-					<form action="upload_product.php" method="POST" enctype="multipart/form-data">
-						<div class="form-group">
-							<label><i class="fas fa-tag"></i> Nama Produk</label>
-							<input type="text" name="product_name" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label><i class="fas fa-dollar-sign"></i> Harga Produk</label>
-							<input type="number" name="product_price" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label><i class="fas fa-align-left"></i> Deskripsi Produk</label>
-							<textarea name="product_description" class="form-control" rows="3" required></textarea>
-						</div>
-						<div class="form-group">
-							<label><i class="fas fa-list"></i> Kategori Produk</label>
-							<select name="product_category" class="form-control" required>
-								<option value="">Pilih Kategori</option>
-								<option value="SUV"><i class="fas fa-car"></i> SUV</option>
-								<option value="Sedan"><i class="fas fa-car"></i> Sedan</option>
-								<option value="Hatchback"><i class="fas fa-car"></i> Hatchback</option>
-								<option value="MPV"><i class="fas fa-car"></i> MPV</option>
-								<option value="Coupe"><i class="fas fa-car"></i> Coupe</option>
-								<option value="Truck"><i class="fas fa-truck"></i> Truck</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label><i class="fas fa-gas-pump"></i> Tipe Bahan Bakar</label><br>
-							<input type="radio" name="fuel_type" value="Petrol" required> <i class="fas fa-gas-pump"></i> Bensin<br>
-							<input type="radio" name="fuel_type" value="Diesel" required> <i class="fas fa-oil-can"></i> Solar<br>
-							<input type="radio" name="fuel_type" value="Electric" required> <i class="fas fa-bolt"></i> Listrik<br>
-						</div>
-						<div class="form-group">
-							<label><i class="fas fa-image"></i> Unggah Gambar</label>
-							<input type="file" name="image" class="form-control" required>
-						</div>
-						<div class="text-center">
-							<input type="submit" value="Tambahkan Produk" class="btn btn-success btn-lg">
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-		<div class="row">
-			<div class="col-md-12">
-				<div class="form-card">
-					<h3 class="text-center margin-bottom50"> <i class="fas fa-trash"></i> Hapus Produk dari Database</h3>
-					<form action="delete_product.php" method="POST">
-						<div class="form-group">
-							<label><i class="fas fa-id-badge"></i> ID Produk</label>
-							<input type="number" name="product_id" class="form-control" required>
-						</div>
-						<div class="text-center">
-							<input type="submit" value="Hapus Produk" class="btn btn-danger btn-lg">
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
+<body class="admin-body" style="background-color:#f8f9fa;">
 
-	</div>
+<!-- Skip link -->
+<a href="#main-content" class="sr-only sr-only-focusable">
+    Lewati ke konten utama
+</a>
+
+<!-- Sidebar / Header -->
+<?php include "includes/header_admin.php"; ?>
+
+<!-- Main Content -->
+<main id="main-content" class="container" role="main">
+
+    <header class="row">
+        <div class="col-md-12 text-center margin-bottom50">
+            <h1>Dashboard Admin CarSale</h1>
+            <p>Selamat datang, <?php echo htmlspecialchars($_SESSION['name']); ?>.</p>
+        </div>
+    </header>
+
+    <?php
+    $total_requests = mysqli_fetch_assoc(
+        mysqli_query($connection, "SELECT COUNT(*) AS total FROM requests")
+    )['total'];
+
+    $pending_requests = mysqli_fetch_assoc(
+        mysqli_query($connection, "SELECT COUNT(*) AS total FROM requests WHERE status='pending'")
+    )['total'];
+
+    $processing_requests = mysqli_fetch_assoc(
+        mysqli_query($connection, "SELECT COUNT(*) AS total FROM requests WHERE status='processing'")
+    )['total'];
+
+    $completed_requests = mysqli_fetch_assoc(
+        mysqli_query($connection, "SELECT COUNT(*) AS total FROM requests WHERE status='completed'")
+    )['total'];
+    ?>
+
+    <!-- Statistik -->
+    <section class="row margin-bottom50" aria-label="Ringkasan permintaan pelanggan">
+        <div class="col-md-3">
+            <div class="form-card text-center">
+                <h2><?php echo $total_requests; ?></h2>
+                <p>Total Request</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-card text-center">
+                <h2><?php echo $pending_requests; ?></h2>
+                <p>Pending</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-card text-center">
+                <h2><?php echo $processing_requests; ?></h2>
+                <p>Processing</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-card text-center">
+                <h2><?php echo $completed_requests; ?></h2>
+                <p>Completed</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigasi -->
+    <section class="row margin-bottom50" aria-label="Menu administrasi">
+        <div class="col-md-3">
+            <a href="add_product.php" class="btn btn-lg btn-success btn-block" role="button">
+                <i class="fas fa-plus-circle" aria-hidden="true"></i>
+                Tambah Produk
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="admin_requests.php" class="btn btn-lg btn-primary btn-block" role="button">
+                <i class="fas fa-list" aria-hidden="true"></i>
+                Lihat Request
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="products.php" class="btn btn-lg btn-info btn-block" role="button">
+                <i class="fas fa-eye" aria-hidden="true"></i>
+                Lihat Produk
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="logout.php" class="btn btn-lg btn-danger btn-block" role="button">
+                <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                Logout
+            </a>
+        </div>
+    </section>
+
+</main>
+
 </body>
 </html>

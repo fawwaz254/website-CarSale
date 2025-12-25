@@ -1,4 +1,11 @@
+<!DOCTYPE html>
 <html>
+	<head>
+		<title>CarSale | Detail Produk</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
 	<?php 
 		session_start();
 		
@@ -6,8 +13,7 @@
   		{
     		header('Location: register.php');
   		}
-  		include "includes/css_header.php";
-		include "includes/dbconnect.php";
+  		include "includes/dbconnect.php";
 	?>
 	<body style="background-color: #EEEEEE;">
 		<?php include "includes/header_postlogin.php"; 				
@@ -47,6 +53,14 @@
 		    {
 		    	echo "<h4 class='text-center text-red'><i>Anda sudah menambahkan ini ke wishlist</i></h4><br>";
 		    }
+		    elseif ($_GET['msg']=='request_success')
+		    {
+		    	echo "<h4 class='text-center text-red'><i>Request cek unit berhasil dikirim</i></h4><br>";
+		    }
+		    elseif ($_GET['msg']=='request_failed')
+		    {
+		    	echo "<h4 class='text-center text-red'><i>Gagal mengirim request cek unit</i></h4><br>";
+		    }
 		    else
 		    {
 		    	echo "<h4 class='text-center text-red'><i>Terjadi kesalahan!</i></h4>";
@@ -79,11 +93,16 @@
 					                } else {
 					                	echo 'Belum ada ulasan<br><br></p>';
 					                }
-					                if($has_ordered){
-					                	echo '<a href="review_form.php?product_id='.$product_id.'" class="btn btn-lg btn-primary"> Tambah Ulasan </a>';
-					                }
-					                echo '<a href="add_to_cart.php?product_id='.$product_id.'" class="btn btn-lg btn-danger"> Tambah ke Keranjang </a>
-					                <a href="add_to_wishlist.php?product_id='.$product_id.'" class="btn btn-lg btn-danger"> Tambah ke Wishlist </a>
+					                echo '<a href="add_to_wishlist.php?product_id='.$product_id.'" class="btn btn-lg btn-warning"> Tambah ke Wishlist </a>
+					                <br><br>
+					                <form action="request_unit.php" method="POST" style="margin-top:20px;">
+					                	<input type="hidden" name="product_id" value="'.$product_id.'">
+					                	<label>Pesan untuk Admin:</label>
+					                	<textarea name="user_message" class="form-control" rows="3" placeholder="Tulis pesan jika ada..." required></textarea>
+					                	<label>Nomor Telepon:</label>
+					                	<input type="tel" name="user_phone" class="form-control" placeholder="Masukkan nomor telepon Anda" required>
+					                	<button type="submit" class="btn btn-lg btn-info" style="margin-top:10px;">Kirim Request Cek Unit</button>
+					                </form>
 				                </div>
 				           	</div>
 				        </div>
